@@ -1,0 +1,153 @@
+/* Google Translate Widget Custom Styling */
+/* timetable2.css - extracted custom styles from timetable2.html */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+body { font-family: 'Inter', sans-serif; }
+/* Custom Card Styles */
+.student-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(60, 80, 180, 0.08);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 8px solid #6366f1;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.student-card:hover {
+    box-shadow: 0 16px 32px rgba(60, 80, 180, 0.15);
+    transform: translateY(-4px) scale(1.02);
+}
+.student-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #3730a3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Progress Bar Styles */
+.progress-bar {
+    width: 100%;
+    height: 18px;
+    background: #e0e7ff;
+    border-radius: 9px;
+    overflow: hidden;
+    margin-bottom: 0.7rem;
+}
+.progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    border-radius: 9px;
+    transition: width 0.5s;
+}
+.progress-label {
+    font-size: 0.95rem;
+    color: #6366f1;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+/* Bar Chart Styles */
+.diagram-box {
+    background: linear-gradient(135deg, #fef9c3 0%, #fde68a 100%);
+    border-left: 8px solid #f59e42;
+}
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.2rem;
+    height: 120px;
+    margin-bottom: 0.7rem;
+}
+.bar {
+    width: 32px;
+    background: linear-gradient(180deg, #6366f1 0%, #f59e42 100%);
+    border-radius: 8px 8px 0 0;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    transition: height 0.5s;
+    box-shadow: 0 2px 8px rgba(60, 80, 180, 0.08);
+}
+.bar-label {
+    font-size: 0.95rem;
+    color: #6366f1;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Button Hover Effects */
+button {
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+button:hover {
+    box-shadow: 0 4px 16px rgba(60, 80, 180, 0.12);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Utility Classes */
+.spaced {
+    margin-bottom: 1.5rem;
+}
+.font-bold {
+    font-weight: 700;
+}
+.font-medium {
+    font-weight: 500;
+}
+.rounded-xl {
+    border-radius: 1rem;
+}
+.shadow-lg {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Responsive Design Tweaks */
+@media (max-width: 768px) {
+    .student-card {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    .student-section-title {
+        font-size: 1.1rem;
+    }
+    .bar-chart {
+        gap: 0.7rem;
+        height: 80px;
+    }
+    .bar {
+        width: 22px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Color Palette */
+:root {
+    --primary: #6366f1;
+    --secondary: #06b6d4;
+    --accent: #f59e42;
+    --bg-light: #f8fafc;
+    --bg-dark: #3730a3;
+}
+.gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.card-shadow { box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.timetable-cell { 
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    min-height: 60px;
+}
+.timetable-cell:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+}
+.dragging { opacity: 0.5; }
+.drop-zone { border: 2px dashed #3b82f6; background-color: #eff6ff; }
+.conflict-warning { border: 2px solid #ef4444; background-color: #fef2f2; }
+.role-badge { 
+    background: linear-gradient(45deg, #10b981, #3b82f6);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+.optimization-indicator { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }

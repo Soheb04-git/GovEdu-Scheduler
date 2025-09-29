@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - EduSchedule Pro</title>
+    <link rel="stylesheet" href="timetable2.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <span class="text-2xl">🎒</span>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold">Student Portal</h1>
+                    <p class="text-sm opacity-90">Welcome to EduSchedule Pro</p>
+                </div>
+            </div>
+            <button onclick="window.location.href='timetable2.html'" class="bg-white bg-opacity-20 px-4 py-2 rounded-lg hover:bg-opacity-30 transition-all">Logout</button>
+        </div>
+    </header>
+    <div class="container mx-auto px-6 py-8">
+        <div class="mb-8 flex flex-wrap space-x-1 bg-white rounded-lg p-1 card-shadow">
+            <button class="flex-1 py-3 px-4 rounded-md font-medium transition-all bg-yellow-500 text-white text-sm">📅 My Timetable</button>
+            <button class="flex-1 py-3 px-4 rounded-md font-medium transition-all text-gray-600 hover:text-yellow-500 text-sm">👥 My Batch</button>
+            <button class="flex-1 py-3 px-4 rounded-md font-medium transition-all text-gray-600 hover:text-yellow-500 text-sm">📈 My Attendance/Reports</button>
+        </div>
+        <div id="studentContent" class="space-y-6">
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Feedback</h2>
+                <div class="flex gap-2 mb-2">
+                    <input id="feedbackInput" type="text" placeholder="Give feedback..." class="border px-3 py-2 rounded-lg flex-1">
+                    <button id="submitFeedbackBtn" class="bg-gray-600 text-white px-5 py-2 rounded-lg shadow hover:bg-gray-700 transition">Submit</button>
+                </div>
+                <div id="feedbackStatus" class="mt-4 text-base text-gray-700"></div>
+            </div>
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">My Timetable</h2>
+                <p class="text-gray-600">Your personalized timetable will appear here.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">My Batch</h2>
+                <p class="text-gray-600">Batch details and classmates info will appear here.</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 card-shadow">
+                                <h2 class="text-xl font-semibold mb-4 text-gray-800">My Attendance/Reports</h2>
+                                <p class="text-gray-600">Attendance and report details will appear here.</p>
+                                <button id="generateReportBtn" class="mt-4 bg-blue-600 text-white py-2 px-6 rounded-lg shadow hover:bg-blue-700 transition font-semibold">📄 Generate Full Report</button>
+                                <div id="reportModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.3);z-index:999;align-items:center;justify-content:center;">
+                                    <div style="background:#fff;border-radius:1rem;max-width:400px;width:90vw;padding:2rem;box-shadow:0 8px 32px rgba(60,80,180,0.15);margin:auto;">
+                                        <h3 style="font-size:1.3rem;font-weight:700;color:#3730a3;margin-bottom:1rem;">Student Full Report (Demo)</h3>
+                                        <ul style="font-size:1rem;color:#222;line-height:1.7;">
+                                            <li><strong>Name:</strong> Priya Sharma</li>
+                                            <li><strong>ID:</strong> STU2025A01</li>
+                                            <li><strong>Batch:</strong> CSE-A</li>
+                                            <li><strong>Attendance:</strong> 96%</li>
+                                            <li><strong>Performance:</strong> 8.7 GPA</li>
+                                            <li><strong>Email:</strong> priya.sharma@college.edu</li>
+                                            <li><strong>Subjects:</strong> Maths, Physics, AI</li>
+                                            <li><strong>Fees:</strong> Paid</li>
+                                            <li><strong>Status:</strong> Active</li>
+                                            <li><strong>Last Login:</strong> 2025-09-25</li>
+                                            <li><strong>Remarks:</strong> Excellent performance</li>
+                                        </ul>
+                                        <button id="closeReportModal" style="margin-top:1.5rem;background:#6366f1;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:0.5rem;font-weight:600;cursor:pointer;">Close</button>
+                                    </div>
+                                </div>
+            </div>
+        </div>
+    </div>
+    <script src="timetable2.js"></script>
+<script>
+document.getElementById('submitFeedbackBtn').onclick = function() {
+    var val = document.getElementById('feedbackInput').value.trim();
+    var status = document.getElementById('feedbackStatus');
+    if (val) {
+        status.textContent = 'Feedback submitted: ' + val;
+        document.getElementById('feedbackInput').value = '';
+    } else {
+        status.textContent = 'Please enter feedback before submitting.';
+    }
+};
+</script>
+</body>
+<script>
+document.getElementById('generateReportBtn').onclick = function() {
+    var modal = document.getElementById('reportModal');
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+};
+document.getElementById('closeReportModal').onclick = function() {
+    document.getElementById('reportModal').style.display = 'none';
+};
+</script>
+</body>
+</html>
